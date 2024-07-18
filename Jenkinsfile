@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'python'
-            label 'latest'
-        }
-    }
+    agent { any { image 'python' } }
     stages {
         stage('build') {
             steps {
