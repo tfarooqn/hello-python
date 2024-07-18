@@ -1,5 +1,6 @@
 pipeline {
-    agent { docker { image 'python' } }
+    agent any
+    // agent { any { image 'python' } }
     stages {
         stage('build') {
             steps {
