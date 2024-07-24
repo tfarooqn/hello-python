@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        maven 'jnlp-agent-maven'
+    }
     // agent {
     //     label 'kubelet_new_cluster'
     // }
