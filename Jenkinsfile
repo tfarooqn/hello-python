@@ -25,7 +25,7 @@ pipeline {
                 echo "Building Docker Image"
                 script {
                     def app
-                    app = docker.build("localhost:32000/${SERVICE_NAME}:${VERSION}" + env.TAG_SUFIX ,  "--build-arg MS_PORT="+ env.MS_PORT" .")
+                    app = docker.build("localhost:32000/${SERVICE_NAME}:${VERSION}" + env.TAG_SUFIX ,  "--build-arg MS_PORT="+ env.MS_PORT+" .")
                     echo "Finished build images"
                     app.push()
                 }
