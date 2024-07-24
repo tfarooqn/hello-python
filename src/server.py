@@ -1,9 +1,20 @@
-from flask import Flask
-server = Flask(__name__)
+from flask import Flask, jsonify, request,send_file
 
-@server.route("/")
- def hello():
-    return "Hello World!"
+def create_app(enviroment):
+    app = Flask(__name__)
+    return app
 
-if __name__ == "__main__":
-   server.run(host='0.0.0.0')
+app = create_app("a")
+
+@app.route('/my-first-api', methods = ['GET'])
+def hello():
+    name = request.args.get('name')
+    if name is None:
+        text = 'Hola!'
+    else:
+        text = 'Hola ' + name + '!'
+    return text
+
+
+if __name__ == '__main__':
+    app.run(debug=True, port=7000)
