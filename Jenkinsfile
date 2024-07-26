@@ -1,8 +1,10 @@
 pipeline {
-    agent any
-    tools {
-        maven 'jnlp-agent-maven'
+    agent docker {
+      image 'python'
     }
+    // tools {
+    //     maven 'jnlp-agent-maven'
+    // }
     // agent {
     //     label 'kubelet_new_cluster'
     // }
