@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     env.SERVICE_NAME = "hello-world"
-                    env.VERSION="1.0.0"
+                    env.VERSION="1.0.1"
                     env.TAG_SUFIX=""
                     env.MS_PORT = 41786
                 }
