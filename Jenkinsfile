@@ -33,6 +33,7 @@ pipeline {
                 script {
                     // sh 'docker build -t localhost:32000/espadin_tfarooqn_python_prueba .'
                     // sh 'docker build -t localhost:32000/'+ ${SERVICE_NAME}+':'+${VERSION} + ' .'
+                    sh 'sleep 300' //seconds
                     def app
                     app = docker.build("localhost:32000/${SERVICE_NAME}:${VERSION}" + env.TAG_SUFIX ,  "--build-arg MS_PORT="+ env.MS_PORT+" .")
                     echo "Finished build images"
