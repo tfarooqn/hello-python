@@ -1,9 +1,7 @@
 pipeline {
     agent {
-        dockerfile {
-            filename 'Dockerfile'
-            additionalBuildArgs '--build-arg MS_PORT="' + 41786 + '"'
-            reuseNode true
+        kubernetes {
+            inheritFrom 'docker'
         }
     }
     // tools {
