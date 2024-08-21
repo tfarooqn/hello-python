@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        kubernetes {
-            inheritFrom 'docker'
-        }
-    }
+    agent any
     // tools {
     //     maven 'jnlp-agent-maven'
     // }
