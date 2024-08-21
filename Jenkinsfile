@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        kubernetes {
+            defaultContainer 'dind'
+            // yamlFile 'buildpod.yaml'
+        }
+    }
     // tools {
     //     maven 'jnlp-agent-maven'
     // }
