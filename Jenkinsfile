@@ -29,6 +29,8 @@ pipeline {
                 script {
                     // sh 'docker build -t localhost:32000/espadin_tfarooqn_python_prueba .'
                     // sh 'docker build -t localhost:32000/'+ ${SERVICE_NAME}+':'+${VERSION} + ' .'
+                    sh 'ls -la /var/run'
+                    sh 'ls -la /var/run/docker.sock'
                     sh 'sleep 120' //seconds
                     sh 'docker images'
                     def app
