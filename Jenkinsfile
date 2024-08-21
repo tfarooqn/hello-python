@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        kubernetes {
-            defaultContainer 'jnlp'
-            // yamlFile 'buildpod.yaml'
-        }
-    }
+    agent any
     // tools {
     //     maven 'jnlp-agent-maven'
     // }
