@@ -35,8 +35,8 @@ pipeline {
                         sh 'docker images'
                         def app
                         app = docker.build("localhost:32000/${SERVICE_NAME}:${VERSION}" + env.TAG_SUFIX ,  "--build-arg MS_PORT="+ env.MS_PORT+" .")
+                        sh 'sleep 200' //seconds
                         app.push()
-                        sh 'sleep 120' //seconds
                         echo "Finished build images"
                     }
                 }
