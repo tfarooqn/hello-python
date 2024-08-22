@@ -25,21 +25,21 @@ pipeline {
                 }
             }
             steps {
-                container('dind') {
-                    echo "Building Docker Image"
-                    script {
-                        // sh 'docker build -t localhost:32000/espadin_tfarooqn_python_prueba .'
-                        // sh 'docker build -t localhost:32000/'+ ${SERVICE_NAME}+':'+${VERSION} + ' .'
-                        sh 'ls -la /var/run/'
-                        // sh 'sleep 120' //seconds
-                        sh 'docker images'
-                        def app
-                        app = docker.build("192.168.48.1:32000/${SERVICE_NAME}:${VERSION}" + env.TAG_SUFIX ,  "--build-arg MS_PORT="+ env.MS_PORT+" .")
-                        sh 'sleep 600' //seconds
-                        app.push()
-                        echo "Finished build images"
-                    }
+                // container('dind') {
+                echo "Building Docker Image"
+                script {
+                    // sh 'docker build -t localhost:32000/espadin_tfarooqn_python_prueba .'
+                    // sh 'docker build -t localhost:32000/'+ ${SERVICE_NAME}+':'+${VERSION} + ' .'
+                    sh 'ls -la /var/run/'
+                    // sh 'sleep 120' //seconds
+                    sh 'docker images'
+                    def app
+                    app = docker.build("localhost:32000/${SERVICE_NAME}:${VERSION}" + env.TAG_SUFIX ,  "--build-arg MS_PORT="+ env.MS_PORT+" .")
+                    sh 'sleep 600' //seconds
+                    app.push()
+                    echo "Finished build images"
                 }
+                // }
             }
         }
         stage('test') {
