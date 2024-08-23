@@ -19,9 +19,9 @@ spec:
         - sleep
       args:
         - 1d
-      volumeMounts:
-        - mountPath: /root/.m2/repository/
-          name: cislaves-pvc-storage
+    //   volumeMounts:
+    //     - mountPath: /root/.m2/repository/
+    //       name: cislaves-pvc-storage
     - name: kaniko
       image: gcr.io/kaniko-project/executor:debug
       resources:
@@ -48,10 +48,10 @@ spec:
       args:
         - 1d
       tty: true
-  volumes:
-    - name: cislaves-pvc-storage
-      persistentVolumeClaim:
-        claimName: cislaves-pvc
+//   volumes:
+//     - name: cislaves-pvc-storage
+//       persistentVolumeClaim:
+//         claimName: cislaves-pvc
 """
         }
     }
