@@ -35,7 +35,7 @@ pipeline {
                         sh 'docker images'
                         docker.withRegistry('http://192.168.48.1:32000') {
                             def app
-                            app = docker.build("192.168.48.1:32000/${SERVICE_NAME}:${VERSION}" + env.TAG_SUFIX ,  "--build-arg MS_PORT="+ env.MS_PORT+" .")
+                            app = docker.build("http://192.168.48.1:32000/${SERVICE_NAME}:${VERSION}" + env.TAG_SUFIX ,  "--build-arg MS_PORT="+ env.MS_PORT+" .")
                             // sh 'sleep 600' //seconds
                             app.push()
                         }
