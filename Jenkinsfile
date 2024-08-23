@@ -89,7 +89,7 @@ spec:
             steps {
                 script {
                     container('kaniko') {                        
-                        def destinationImage = "192.168.48.1/${SERVICE_NAME}:${VERSION}"
+                        def destinationImage = "192.168.48.1:32000/${SERVICE_NAME}:${VERSION}"
                         echo "Image will be built as ${destinationImage}"
                         sh "/kaniko/executor -f `pwd`/Dockerfile -c `pwd` --destination=${destinationImage} --build-arg MS_PORT=${env.MS_PORT}"
                     }
