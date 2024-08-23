@@ -33,9 +33,9 @@ pipeline {
                         sh 'ls -la /var/run/'
                         // sh 'sleep 120' //seconds
                         sh 'docker images'
-                        docker.withRegistry('https://192.168.48.1:32000') {
+                        docker.withRegistry('https://192.168.48.1:32001') {
                             def app
-                            app = docker.build("192.168.48.1:32000/${SERVICE_NAME}:${VERSION}" + env.TAG_SUFIX ,  "--build-arg MS_PORT="+ env.MS_PORT+" .")
+                            app = docker.build("localhost:32000/${SERVICE_NAME}:${VERSION}" + env.TAG_SUFIX ,  "--build-arg MS_PORT="+ env.MS_PORT+" .")
                             // sh 'sleep 600' //seconds
                             app.push()
                         }
